@@ -3,6 +3,7 @@ import { CiUser } from "react-icons/ci";
 import { CiShoppingCart } from "react-icons/ci";
 import { FaLocationDot } from "react-icons/fa6";
 import { logo } from '../utils/Data';
+import { Link } from 'react-router-dom';
 
 function Header(props) {
     console.log(logo);
@@ -15,15 +16,14 @@ function Header(props) {
             <input type="text" placeholder='Ban tim gi ?' className='w-56 rounded-xl p-1 text-black' />
 
             <div className='flex gap-3 '>
-                <button className='flex gap-1 items-center'>
+                <Link to={"/todolist"} className='flex gap-1 items-center'>
                     <CiUser />
-                    Dang nhap
-                </button>
-                <button className='flex gap-1 items-center '>
+                    To do list
+                </Link>
+                <Link to={"/categories"} className='flex gap-1 items-center '>
                     <CiShoppingCart />
-
-                    Gio hang
-                </button>
+                    Categories 
+                </Link>
             </div>
             <div>
                 <button className='flex gap-1 items-center'>

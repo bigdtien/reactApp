@@ -1,15 +1,10 @@
-import Header from './components/pages/Header';
-import Main from './components/pages/Main';
-import Footer from './components/pages/Footer';
-import TodoList from './components/pages/TodoList';
+import Home from "./components/pages/Home";
+
 
 function App() {
   return (
     <div className="App">
-        {/* <Header/> */}
-        {/* <Main/> */}
-        <TodoList/>
-        {/* <Footer/> */}
+      <Home/>
     </div>
   );
 }
