@@ -26,11 +26,11 @@ function Header(props) {
                 </Link>
             </div>
             <div>
-                <button className='flex gap-1 items-center'>
+                <Link to={"/products"} className='flex gap-1 items-center'>
                     <FaLocationDot />
 
-                    Dia chi
-                </button>
+                    Products
+                </Link>
             </div>
 
         </div>
