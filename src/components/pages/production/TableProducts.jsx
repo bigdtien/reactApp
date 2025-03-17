@@ -10,15 +10,16 @@ import axios from 'axios';
 
 
 function TableProducts(props) {
-    const [products, setProducts] = React.useState();
-
+    const [products, setProducts] = React.useState([]);
+    React.useEffect(() => {
+            getAllData();
+        },[]);
 
     const getAllData = async () => {
         const reponse = await axios.get("https://67d15962825945773eb3fb57.mockapi.io/products");
         setProducts(reponse.data);
     }
     
-    b 
     return (
         
         <div>
@@ -26,10 +27,10 @@ function TableProducts(props) {
                     <Table sx={{ minWidth: 650 }} aria-label="simple table">
                         <TableHead>
                             <TableRow>
-                                <TableCell>Dessert (100g serving)</TableCell>
-                                <TableCell align="right">Calories</TableCell>
-                                <TableCell align="right">Fat&nbsp;(g)</TableCell>
-                                <TableCell align="right">Carbs&nbsp;(g)</TableCell>
+                                <TableCell>#</TableCell>
+                                <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">Description</TableCell>
+                                <TableCell align="right">Image</TableCell>
                                 
                             </TableRow>
                         </TableHead>
@@ -37,15 +38,13 @@ function TableProducts(props) {
                             {products.map((row, index) => (
                                 <TableRow
                                     key={row.name}
-                                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell component="th" scope="row">
-                                        {row.name}
+                                        {index + 1}
                                     </TableCell>
-                                    <TableCell align="right">{row.calories}</TableCell>
-                                    <TableCell align="right">{row.fat}</TableCell>
-                                    <TableCell align="right">{row.carbs}</TableCell>
-                                    <TableCell align="right">{row.protein}</TableCell>
+                                    <TableCell align="right">{row.name}</TableCell>
+                                    <TableCell align="right">{row.description}</TableCell>
+                                    <TableCell align="right">{row.avatar}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
